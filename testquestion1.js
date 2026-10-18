@@ -1,12 +1,12 @@
 let handPose;
 let hands = [];
 let video;
-let platform; // Variable for the platform sprite
+let platform; 
 
 function preload(){
     let options = {
-        flipped: true, // 3. Set to true to correctly mirror the hand pose model
-        runtime: "tfjs",
+        flipped: true, 
+        runtime: "tfjs" ,
         modelType: "lite",
         detectorModelUrl: undefined,
         landmarkModeUrl: undefined,
