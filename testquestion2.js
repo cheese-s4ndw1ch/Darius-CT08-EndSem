@@ -87,7 +87,7 @@ function draw () {
         ball.collider = "dynamic";
     }
 
-    /
+    
     if (ball.collides(platform)) {
         points++;
     }
