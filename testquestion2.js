@@ -1,13 +1,13 @@
 let handPose;
 let hands = [];
 let video;
-let platform; // Platform sprite from Part A
-let ball;     // Ball sprite
-let points = 0; // Point counter starting at 0
+let platform; 
+let ball;     
+let points = 0; 
 
 function preload(){
     let options = {
-        flipped: true, // Correctly mirror the hand pose model
+        flipped: true,
         runtime: "tfjs",
         modelType: "lite",
         detectorModelUrl: undefined,
@@ -38,14 +38,14 @@ function setup () {
 
     handPose.detectStart(video, gotHands);
 
-    // 5. Apply gravity so that the ball sprite falls downward
+   
     world.gravity.y = 10;
 
-    // Create the platform sprite (static)
+  
     platform = new Sprite(width / 2, height / 2, 300, 20);
     platform.collider = "static";
 
-    // 1, 2 & 3. Create a new ball sprite at x: 320, y: 100, diameter: 40, set bounciness to 1, and collider to "static"
+    
     ball = new Sprite(320, 100, 40);
     ball.bounciness = 1;
     ball.collider = "static";
@@ -58,7 +58,7 @@ function gotHands(results){
 function draw () {
     background("black");
 
-    // Mirror and display the webcam video to fill the entire canvas
+   
     push();
     scale(-1, 1);
     image(video, -width, 0, width, height);
@@ -82,17 +82,17 @@ function draw () {
         }
     }
 
-    // 4. When the mouse is clicked, change the ball sprite collider to "dynamic"
+   
     if (mouse.presses()) {
         ball.collider = "dynamic";
     }
 
-    // 8. Whenever the ball sprite collides with the platform sprite, add 1 point
+    /
     if (ball.collides(platform)) {
         points++;
     }
 
-    // 6 & 7. Display points on the top of the screen as "Points: [point number]"
+    
     fill(255);
     textSize(20);
     text("Points: " + points, 20, 30);
